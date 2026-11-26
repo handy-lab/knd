@@ -6,6 +6,7 @@ import { FloatingButtons } from "@/components/layout/FloatingButtons";
 import Layout from "@/components/layout/view/Layout";
 import { menuApi, sortMenus } from "@/lib/api/menu";
 import { Menu } from "@/types/api";
+import GoogleAnalytics from "@/components/common/GoogleAnalytics";
 
 export default function RoutesLayout({
   children,
@@ -35,14 +36,18 @@ export default function RoutesLayout({
 
   if (isLoading) {
     return (
-      <Center h="100vh">
-        <Spinner size="xl" />
-      </Center>
+      <>
+        <GoogleAnalytics />
+        <Center h="100vh">
+          <Spinner size="xl" />
+        </Center>
+      </>
     );
   }
 
   return (
     <Box>
+      <GoogleAnalytics />
       <Suspense
         fallback={
           <Center h="100vh">
